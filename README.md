@@ -43,3 +43,9 @@
 11. Create /assets/scripts/auth/ui.js
 12. Initialize the process that does error handling. Did the API request
 succeed or fail?
+
+## Technologies Used
+- HTML/CSS
+- JavaScript
+- jQuery
+- Bootstrap
