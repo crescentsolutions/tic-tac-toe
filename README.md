@@ -19,3 +19,22 @@
 - As a User I want to NOT be able to add to the board so that I can know the game is over
 - As a User I want a button to be able to play again
 - As a User I want to be signed in so that I can view number of games played
+
+## Process for Building Desktop Application
+1. Create auth folder to contain .sh files for curl scripts /curl-scripts/auth
+2. Create .sh files for each curl script I need to test
+      ex: /curl-scripts/auth/sign-in.sh,
+          /curl-scripts/auth/sign-up.sh,
+          etc.
+3. Test the API using curl scripts in /curl-scripts/auth
+4. Create sign up form and sign in form using HTML in index.html
+4. Create gameboard using BootStrap in index.html
+5. Create /assests/scripts/app.js file
+6. Initialize the submit event using document.ready in /assests/scripts/app.js
+7. Create /assets/scripts/auth folder to contain .js files that handle app
+    functionality and API requests
+8. Create /assets/scripts/auth/events.js
+9. Initialize process that needs to happen for each form
+    submission
+    path: /assets/scripts/auth/events.js
+9.
