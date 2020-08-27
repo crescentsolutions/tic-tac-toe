@@ -23,9 +23,9 @@
 ## Process for Building Desktop Application
 1. Create auth folder to contain .sh files for curl scripts /curl-scripts/auth
 2. Create .sh files for each curl script I need to test
-      ex: /curl-scripts/auth/sign-in.sh,
-          /curl-scripts/auth/sign-up.sh,
-          etc.
+      - ex: /curl-scripts/auth/sign-in.sh,
+          -- /curl-scripts/auth/sign-up.sh,
+          -- etc.
 3. Test the API using curl scripts in /curl-scripts/auth
 4. Create sign up form and sign in form using HTML in index.html
 4. Create gameboard using BootStrap in index.html
@@ -36,5 +36,10 @@
 8. Create /assets/scripts/auth/events.js
 9. Initialize process that needs to happen for each form
     submission
-    path: /assets/scripts/auth/events.js
-9.
+    - path: /assets/scripts/auth/events.js
+9. Create /assets/scripts/auth/api.js
+10. Create the API requests
+    - path: /assets/scripts/auth/api.js
+11. Create /assets/scripts/auth/ui.js
+12. Initialize the process that does error handling. Did the API request
+succeed or fail?
