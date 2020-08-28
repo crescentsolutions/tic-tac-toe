@@ -29,14 +29,14 @@ const onSignIn = function (event) {
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
 }
-const onChangePw = function () {
+const onChangePw = function (event) {
   event.preventDefault()
   const form = event.target
 
   const data = getFormFields(form)
   api.changePw(data)
-    .then(ui.onSignInSuccess)
-    .catch(ui.onSignInFailure)
+    .then(ui.onChangePwSuccess)
+    .catch(ui.onChangePwFailure)
 }
 const onGameBoard = function () {
   $('#game-board').css('background-color', 'red')
