@@ -13,5 +13,63 @@
     </head>
     <body>
       <h1>Browser Template</h1>
+      <p id="message"></p>
+      <section>
+        <!-- Source: https://git.generalassemb.ly/daylinjones/jquery-ajax-token-auth -->
+        <form id="sign-up-form">
+          <fieldset>
+            <legend>Sign up!</legend>
+            <label for="sign-up-email">Email</label>
+            <input id="sign-up-email" type="email" name="credentials[email]" placeholder="Email">
+            <label for="sign-up-password">Password</label>
+            <input id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
+            <label for="sign-up-password_confirmation">Password Confirmation</label>
+            <input id="sign-up-password_confirmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            <input type="submit" value="Sign up!">
+          </fieldset>
+        </form>
+        <form id="sign-in-form">
+          <fieldset>
+            <legend>Sign In</legend>
+            <label for="sign-in-email">Email</label>
+            <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
+            <label for="sign-in-password">Password</label>
+            <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" value="Sign In">
+          </fieldset>
+        </form>
+        <form id="change-password">
+          <fieldset>
+            <legend>Change Password</legend>
+            <label for="old-password">Password</label>
+            <input id="old-password" type="password" name="credentials[password]" placeholder="Password">
+            <label for="new-password">Password</label>
+            <input id="new-password" type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" value="Change Password">
+          </fieldset>
+        </form>
+      </section>
+      <section>
+        <!-- Source: https://git.generalassemb.ly/daylinjones/html-css-bootstrap-layout -->
+        <!-- Source: https://getbootstrap.com/docs/4.3/layout -->
+        <div class="container">
+          <div class="row">
+            <div class="col game-square"></div>
+            <div class="col game-square"></div>
+            <div class="col game-square"></div>
+          </div>
+          <div class="row">
+            <div class="col game-square"></div>
+            <div class="col game-square"></div>
+            <div class="col game-square"></div>
+          </div>
+          <div class="row">
+            <div class="col game-square"></div>
+            <div class="col game-square"></div>
+            <div class="col game-square"></div>
+          </div>
+        </div>
+
+      </section>
     </body>
 </html>

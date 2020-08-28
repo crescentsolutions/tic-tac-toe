@@ -1,1 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
+
+.container {
+  border: solid 2px red;
+  height: 450px;
+  max-width: 768px;
+}
+.row {
+  height: 150px;
+}
+.game-square {
+  border: solid 2px purple;
+  /*height: 100px;*/
+}
