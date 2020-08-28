@@ -39,7 +39,9 @@ const onChangePw = function (event) {
     .catch(ui.onChangePwFailure)
 }
 const onGameBoard = function () {
-  $('#game-board').css('background-color', 'red')
+  $('#game-board').css('background-color', 'yellow')
+  // $('.game-square').text('X')
+  $('.game-square').text('X')
 }
 
 module.exports = {

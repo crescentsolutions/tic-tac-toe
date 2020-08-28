@@ -29,12 +29,13 @@ const onSignInFailure = function (error) {
   console.log('error is ', error)
   console.log('Sign in failed')
 }
-const onChangePwSuccess = function (response) {
-  store.user = response.user
+const onChangePwSuccess = function () {
+  // store.user = response.user
   console.log(store)
-  $('#message').text('Success! Password has been changed ' + response.user.email)
+  // console.log('This is the response: ', response)
+  $('#message').text('Success! Password has been changed ' + store.user.email)
   console.log('It worked!')
-  $('#change-passwor').trigger('reset')
+  $('#change-password').trigger('reset')
 }
 const onChangePwFailure = function (error) {
   $('#message').text('Password could not be changed')
