@@ -31,8 +31,7 @@
 4. Create gameboard using BootStrap in index.html
 5. Create /assests/scripts/app.js file
 6. Initialize the submit event using document.ready in /assests/scripts/app.js
-7. Create /assets/scripts/auth folder to contain .js files that handle app
-    functionality and API requests
+7. Create /assets/scripts/auth folder to contain .js files that handle the app
 8. Create /assets/scripts/auth/events.js
 9. Initialize process that needs to happen for each form
     submission
