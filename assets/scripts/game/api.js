@@ -12,7 +12,7 @@ const newGame = function (data) {
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    data: ''
+    data: data
   })
 }
 module.exports = {
