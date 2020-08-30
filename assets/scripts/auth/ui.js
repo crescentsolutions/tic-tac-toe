@@ -16,13 +16,13 @@ const onSignUpFailure = function (error) {
 }
 const onSignInSuccess = function (response) {
   store.user = response.user
-  console.log(store.user.token)
   $('#message').text('Thanks for signing in ' + response.user.email)
   console.log('It worked!')
   $('#sign-in-form').trigger('reset')
   $('#change-password').show('reset')
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
+  $('#change-password').hide()
 }
 const onSignInFailure = function (error) {
   $('#message').text('Sign up failed try again')

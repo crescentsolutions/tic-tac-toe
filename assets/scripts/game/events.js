@@ -1,6 +1,7 @@
 'use strict'
 
 // Source: https://git.generalassemb.ly/daylinjones/jquery-ajax-token-auth
+// Source: https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 
 const getGameData = require('./../../../lib/get-form-fields')
 const api = require('./api')
@@ -9,25 +10,36 @@ const ui = require('./ui')
 const newGameEvent = function (event) {
   event.preventDefault()
 
-  const gamePiece = event.target
-  const data = getGameData(gamePiece)
-  console.log(gamePiece)
-  console.log(data)
+  const submitNewGame = event.target
+  const data = getGameData(submitNewGame)
   api.newGame(data)
     .then(ui.gameCreationSuccess)
     .catch(ui.gameCreationFailure)
-  // end of newGame function
 }
 
-const newTurnEvent = function (event) {
+const newAddGamePiece = function (event) {
+  event.preventDefault()
   const gamePiece = event.target
-  const selectSquare = function () {
-    $(gamePiece).html('<h1>X</h1>')
-  }
-  selectSquare()
+  const data = getGameData(gamePiece)
+  api.trackGame(data)
+    .then(ui.addGamePieceSuccess)
+    .catch(ui.addGamePieceFailure)
+}
+
+const newTrackGamePiece = function (event) {
+  event.preventDefault()
+
+  const selectedSquare = event.target
+  console.log('Here is the selectedSquare: ')
+  console.log(selectedSquare.dataset.cellIndex)
+  const data = getGameData(selectedSquare)
+  api.trackGame(data)
+    .then(ui.gameTrackingSuccess)
+    .catch(ui.gameTrackingFailure)
 }
 
 module.exports = {
   newGameEvent: newGameEvent,
-  newTurnEvent: newTurnEvent
+  newAddGamePiece: newAddGamePiece,
+  newTrackGamePiece: newTrackGamePiece
 }

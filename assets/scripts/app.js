@@ -9,7 +9,8 @@ $(() => {
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePw)
   $('#start-game').on('click', gameEvents.newGameEvent)
-  $('#game-board').on('click', gameEvents.newTurnEvent)
+  $('#game-board').on('click', gameEvents.newAddGamePiece)
+  $('#game-board').on('click', gameEvents.newTrackGamePiece)
 })
 
 function gameFeatures () {

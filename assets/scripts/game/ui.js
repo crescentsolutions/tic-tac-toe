@@ -2,25 +2,41 @@
 
 // Source: https://git.generalassemb.ly/daylinjones/jquery-ajax-token-auth
 
-const store = require('./../game-store.js')
+const gameStore = require('./../game-store.js')
 
 const gameCreationSuccess = function (response) {
-  // store.user.id = response.user.id
-  store.id = response.game._id
-  console.log(store)
-  // $('#message').text('New game has started ' + response.user.email)
+  gameStore.id = response.game._id
   $('#message').text('New game has started')
   console.log('A game has been created!')
-  $('#sign-up-form').hide()
-  $('#sign-in-form').hide()
-  $('#change-password').hide()
 }
 const gameCreationFailure = function (error) {
   $('#message').text('Could not create new game')
   console.log('error is ', error)
   console.log('Could not create new game')
 }
+const addGamePieceSuccess = function () {
+
+}
+const addGamePieceFailures = function () {
+
+}
+const gameTrackingSuccess = function (response) {
+  gameStore.id = response.game._id
+  $('#message').text('Move has been tracked')
+  console.log('Move has been tracked')
+  console.log(response.game.cells)
+  // console.log(response.game.cells.index)
+}
+const gameTrackingFailure = function (error) {
+  $('#message').text('Could not track game play')
+  console.log('Could not track game play')
+  console.log('error is ', error)
+}
 module.exports = {
   gameCreationSuccess: gameCreationSuccess,
-  gameCreationFailure: gameCreationFailure
+  gameCreationFailure: gameCreationFailure,
+  addGamePieceSuccess: addGamePieceSuccess,
+  addGamePieceFailures: addGamePieceFailures,
+  gameTrackingSuccess: gameTrackingSuccess,
+  gameTrackingFailure: gameTrackingFailure
 }
