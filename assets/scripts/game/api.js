@@ -17,17 +17,17 @@ const newGame = function (data) {
     data: data
   })
 }
-const newGamePiece = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games' + gameStore.id,
-    method: 'POST',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-      // Authorization: 'Bearer ' + store.user.token
-    },
-    data: data
-  })
-}
+// const newGamePiece = function (data) {
+//   return $.ajax({
+//     url: config.apiUrl + '/games' + gameStore.id,
+//     method: 'POST',
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//       // Authorization: 'Bearer ' + store.user.token
+//     },
+//     data: data
+//   })
+// }
 const trackGame = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games/' + gameStore.id,
@@ -39,7 +39,7 @@ const trackGame = function (data) {
     data: {
       game: {
         cell: {
-          index: 0,
+          index: data,
           value: 'X'
         },
         over: gameStore.over
@@ -50,6 +50,6 @@ const trackGame = function (data) {
 
 module.exports = {
   newGame: newGame,
-  newGamePiece: newGamePiece,
+  // newGamePiece: newGamePiece,
   trackGame: trackGame
 }
