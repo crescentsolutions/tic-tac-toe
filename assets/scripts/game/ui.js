@@ -25,23 +25,23 @@ const gameCreationFailure = function (error) {
 //   $('#message').text('Could not add game piece')
 //   console.log('Could not add game piece')
 // }
-// const gameTrackingSuccess = function (response) {
-//   gameStore.id = response.game._id
-//   $('#message').text('Move has been tracked')
-//   console.log('Move has been tracked')
-//   console.log(response.game.cells)
-//   // console.log(response.game.cells.index)
-// }
-// const gameTrackingFailure = function (error) {
-//   $('#message').text('Could not track game play')
-//   console.log('Could not track game play')
-//   console.log('error is ', error)
-// }
+const gameTrackingSuccess = function (response) {
+  gameStore.id = response.game._id
+  $('#message').text('Move has been tracked')
+  console.log('Move has been tracked')
+  console.log(response.game.cells)
+  // console.log(response.game.cells.index)
+}
+const gameTrackingFailure = function (error) {
+  $('#message').text('Could not track game play')
+  console.log('Could not track game play')
+  console.log('error is ', error)
+}
 module.exports = {
   gameCreationSuccess: gameCreationSuccess,
-  gameCreationFailure: gameCreationFailure
+  gameCreationFailure: gameCreationFailure,
   // addGamePieceSuccess: addGamePieceSuccess,
   // addGamePieceFailures: addGamePieceFailures,
-  // gameTrackingSuccess: gameTrackingSuccess,
-  // gameTrackingFailure: gameTrackingFailure
+  gameTrackingSuccess: gameTrackingSuccess,
+  gameTrackingFailure: gameTrackingFailure
 }

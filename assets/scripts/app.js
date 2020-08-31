@@ -11,5 +11,4 @@ $(() => {
   $('#start-game').on('click', gameEvents.newGameEvent)
   // $('#game-board').on('click', gameEvents.newAddGamePiece)
   $('.game-square').on('click', gameEvents.newTrackGamePiece)
-  $('#game-board').on('click', gameEvents.selectGameSquare)
 })
