@@ -25,7 +25,9 @@ const onSignInSuccess = function (response) {
   $('#change-password').hide()
 }
 const onSignInFailure = function (error) {
-  $('#message').text('Sign up failed try again')
+  $('#message').text('Sign in failed try again')
+  $('#message').css('background-color', '#ff0000')
+  $('#message').css('padding', '1em 0')
   console.log('error is ', error)
   console.log('Sign in failed')
 }
@@ -36,6 +38,9 @@ const onChangePwSuccess = function () {
 }
 const onChangePwFailure = function (error) {
   $('#message').text('Password could not be changed')
+  $('#message').text('Sign in failed try again')
+  $('#message').css('background-color', '#ff0000')
+  $('#message').css('padding', '1em 0')
   console.log('error is ', error)
   console.log('Sign in failed')
 }

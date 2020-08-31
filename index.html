@@ -12,63 +12,62 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Daylin's Tic-Tac-Toe</h1>
       <p id="message"></p>
       <section>
+        <div class="container">
+          <div class="row">
+            <form id="sign-up-form">
+              <fieldset>
+                <legend>Sign up!</legend>
+                <input id="sign-up-email" type="email" name="credentials[email]" placeholder="Email">
+                <input id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
+                <input id="sign-up-password_confirmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                <input type="submit" value="Sign up!">
+              </fieldset>
+            </form>
+            <form id="sign-in-form">
+              <fieldset>
+                <legend>Sign In</legend>
+                <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
+                <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
+                <input type="submit" value="Sign In">
+              </fieldset>
+            </form>
+            <form id="change-password">
+              <fieldset>
+                <legend>Change Password</legend>
+                <input id="old-password" type="password" name="passwords[old]" placeholder="Old Password">
+                <input id="new-password" type="password" name="passwords[new]" placeholder="New Password">
+                <input type="submit" value="Change Password">
+              </fieldset>
+            </form>
+          </div>
+          <div class="row">
+            <h3>Get Started</h3>
+            <button id="start-game">Start Game</button>
+            <button id="end-game">End Game</button>
+          </div>
+        </div>
         <!-- Source: https://git.generalassemb.ly/daylinjones/jquery-ajax-token-auth -->
-        <form id="sign-up-form">
-          <fieldset>
-            <legend>Sign up!</legend>
-            <label for="sign-up-email">Email</label>
-            <input id="sign-up-email" type="email" name="credentials[email]" placeholder="Email">
-            <label for="sign-up-password">Password</label>
-            <input id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
-            <label for="sign-up-password_confirmation">Password Confirmation</label>
-            <input id="sign-up-password_confirmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-            <input type="submit" value="Sign up!">
-          </fieldset>
-        </form>
-        <form id="sign-in-form">
-          <fieldset>
-            <legend>Sign In</legend>
-            <label for="sign-in-email">Email</label>
-            <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
-            <label for="sign-in-password">Password</label>
-            <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
-            <input type="submit" value="Sign In">
-          </fieldset>
-        </form>
-        <form id="change-password">
-          <fieldset>
-            <legend>Change Password</legend>
-            <input id="old-password" type="password" name="passwords[old]" placeholder="Old Password">
-            <input id="new-password" type="password" name="passwords[new]" placeholder="New Password">
-            <input type="submit" value="Change Password">
-          </fieldset>
-        </form>
       </section>
       <section>
         <!-- Source: https://git.generalassemb.ly/daylinjones/html-css-bootstrap-layout -->
         <!-- Source: https://getbootstrap.com/docs/4.3/layout -->
-        <div>
-          <h3>Get Started</h3>
-          <button id="start-game">Start Game</button>
-          <button id="end-game">End Game</button>
-        </div>
         <div id="game-board" class="container">
           <h3>Who's Turn Is it?</h3>
           <h3 id="role"></h3>
-          <div class="row">
+          <div class="row row-1">
             <div class="col game-square square-1" data-cell-index='1'></div>
             <div class="col game-square square-2" data-cell-index='2'></div>
             <div class="col game-square square-3" data-cell-index='3'></div>
           </div>
-          <div class="row">
+          <div class="row row-2">
             <div class="col game-square square-4" data-cell-index='4'></div>
             <div class="col game-square square-5" data-cell-index='5'></div>
             <div class="col game-square square-6" data-cell-index='6'></div>
           </div>
-          <div class="row">
+          <div class="row row-3">
             <div class="col game-square square-7" data-cell-index='7'></div>
             <div class="col game-square square-8" data-cell-index='8'></div>
             <div class="col game-square square-9" data-cell-index='9'></div>

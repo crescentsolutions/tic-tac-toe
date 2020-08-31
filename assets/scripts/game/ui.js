@@ -11,6 +11,9 @@ const gameCreationSuccess = function (response) {
 }
 const gameCreationFailure = function (error) {
   $('#message').text('Could not create new game')
+  $('#message').css('background-color', '$alert')
+  $('#message').css('padding', '2em 0')
+
   console.log('error is ', error)
   console.log('Could not create new game')
 }
