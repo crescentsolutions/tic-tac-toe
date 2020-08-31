@@ -30,9 +30,6 @@ const onSignInFailure = function (error) {
   console.log('Sign in failed')
 }
 const onChangePwSuccess = function () {
-  // store.user = response.user
-  console.log(store)
-  // console.log('This is the response: ', response)
   $('#message').text('Success! Password has been changed ' + store.user.email)
   console.log('It worked!')
   $('#change-password').trigger('reset')

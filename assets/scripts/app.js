@@ -11,9 +11,5 @@ $(() => {
   $('#start-game').on('click', gameEvents.newGameEvent)
   $('#game-board').on('click', gameEvents.newAddGamePiece)
   $('#game-board').on('click', gameEvents.newTrackGamePiece)
+  $('#game-board').on('click', gameInfo.findGameSquare)
 })
-
-function gameFeatures () {
-  gameInfo.specialFeatures()
-}
-gameFeatures()

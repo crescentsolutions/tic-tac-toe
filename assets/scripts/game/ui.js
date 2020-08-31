@@ -15,10 +15,12 @@ const gameCreationFailure = function (error) {
   console.log('Could not create new game')
 }
 const addGamePieceSuccess = function () {
-
+  $('#message').text('A game piece has been added')
+  console.log('A game piece has been added')
 }
 const addGamePieceFailures = function () {
-
+  $('#message').text('Could not add game piece')
+  console.log('Could not add game piece')
 }
 const gameTrackingSuccess = function (response) {
   gameStore.id = response.game._id

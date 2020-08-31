@@ -6,10 +6,10 @@
 const getGameData = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const gameInfo = require('./special')
 
 const newGameEvent = function (event) {
   event.preventDefault()
-
   const submitNewGame = event.target
   const data = getGameData(submitNewGame)
   api.newGame(data)
@@ -21,14 +21,15 @@ const newAddGamePiece = function (event) {
   event.preventDefault()
   const gamePiece = event.target
   const data = getGameData(gamePiece)
-  api.trackGame(data)
+  api.newGamePiece(data)
     .then(ui.addGamePieceSuccess)
     .catch(ui.addGamePieceFailure)
+
+  gameInfo.addX()
 }
 
 const newTrackGamePiece = function (event) {
   event.preventDefault()
-
   const selectedSquare = event.target
   console.log('Here is the selectedSquare: ')
   console.log(selectedSquare.dataset.cellIndex)
