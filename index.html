@@ -12,12 +12,19 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <header>
+        <form id="sign-out" class="sign-out">
+          <fieldset>
+            <input type="submit" value="Sign Out">
+          </fieldset>
+        </form>
+      </header>
       <h1>Daylin's Tic-Tac-Toe</h1>
       <p id="message"></p>
       <section>
         <div class="container">
           <div class="row">
-            <form id="sign-up-form">
+            <form id="sign-up">
               <fieldset>
                 <legend>Sign up!</legend>
                 <input id="sign-up-email" type="email" name="credentials[email]" placeholder="Email">
@@ -26,12 +33,13 @@
                 <input type="submit" value="Sign up!">
               </fieldset>
             </form>
-            <form id="sign-in-form">
+            <form id="sign-in">
               <fieldset>
                 <legend>Sign In</legend>
                 <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
                 <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
                 <input type="submit" value="Sign In">
+                <p id="sign-up-link" class="link-style">Don't have an account? Sign Up By Here</p>
               </fieldset>
             </form>
             <form id="change-password">
@@ -43,7 +51,7 @@
               </fieldset>
             </form>
           </div>
-          <div class="row">
+          <div class="row start-game">
             <h3>Get Started</h3>
             <button id="start-game">Start Game</button>
           </div>

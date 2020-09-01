@@ -7,7 +7,11 @@ const store = require('./../store.js')
 const onSignUpSuccess = function (response) {
   $('#message').text('Thanks for signing up ' + response.user.email)
   console.log('It worked!')
-  $('#sign-up-form').trigger('reset')
+  $('#sign-in').show()
+  $('#sign-up').trigger('reset')
+  $('#sign-up').hide()
+  $('#change-password').hide()
+  $('#game-board').hide()
 }
 const onSignUpFailure = function (error) {
   $('#message').text('Sign up failed try again')
@@ -18,11 +22,13 @@ const onSignInSuccess = function (response) {
   store.user = response.user
   $('#message').text('Thanks for signing in ' + response.user.email)
   console.log('It worked!')
-  $('#sign-in-form').trigger('reset')
+  $('#sign-in').trigger('reset')
   $('#change-password').show('reset')
-  $('#sign-up-form').hide()
-  $('#sign-in-form').hide()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
   $('#change-password').hide()
+  $('.start-game').show()
+  $('#game-board').show()
 }
 const onSignInFailure = function (error) {
   $('#message').text('Sign in failed try again')
@@ -31,6 +37,21 @@ const onSignInFailure = function (error) {
   console.log('error is ', error)
   console.log('Sign in failed')
 }
+const onSignOutSuccess = function (response) {
+  $('#message').text('You are signed out ' + response.user.email)
+  console.log('It worked!')
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#change-password').hide()
+  $('#game-board').hide()
+}
+const onSignOutFailure = function (error) {
+  $('#message').text('Could not sign out')
+  $('#message').css('background-color', '$alert')
+  $('#message').css('padding', '2em 0')
+  console.log('error is ', error)
+  console.log('Could not sign out')
+}
 const onChangePwSuccess = function () {
   $('#message').text('Success! Password has been changed ' + store.user.email)
   console.log('It worked!')
@@ -38,17 +59,18 @@ const onChangePwSuccess = function () {
 }
 const onChangePwFailure = function (error) {
   $('#message').text('Password could not be changed')
-  $('#message').text('Sign in failed try again')
   $('#message').css('background-color', '#ff0000')
   $('#message').css('padding', '1em 0')
   console.log('error is ', error)
-  console.log('Sign in failed')
+  console.log('Password could not be changed')
 }
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
   onSignInFailure,
+  onSignOutSuccess,
+  onSignOutFailure,
   onChangePwSuccess,
   onChangePwFailure
 }

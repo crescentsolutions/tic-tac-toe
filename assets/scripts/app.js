@@ -2,13 +2,16 @@
 
 const authEvents = require('./auth/events')
 const gameEvents = require('./game/events')
-const gameInfo = require('./game/special')
+const specialEvents = require('./game/special')
 
 $(() => {
-  $('#sign-up-form').on('submit', authEvents.onSignUp)
-  $('#sign-in-form').on('submit', authEvents.onSignIn)
+  $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#sign-out').on('submit', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePw)
   $('#start-game').on('click', gameEvents.newGameEvent)
   // $('#game-board').on('click', gameEvents.newAddGamePiece)
   $('.game-square').on('click', gameEvents.newTrackGamePiece)
+  // Custom UI functions
+  $('#sign-up-link').on('click', specialEvents.linkSignUp)
 })

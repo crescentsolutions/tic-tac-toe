@@ -9,9 +9,16 @@ $form-bg: #04abc0;
 $form-border: #ccc;
 $standard-radius: 5px;
 $alert: #ff0000;
+$hover-accent: #dedede;
 
 body {
   background-color: $background-blue;
+}
+
+header {
+  background-color: $pink;
+  height: 70px;
+  text-align: right;
 }
 
 .container {
@@ -22,9 +29,30 @@ form {
   background-color: $pink;
   border-radius: $standard-radius;
   margin: 20px 0;
+  margin: auto;
   padding: 2em;
   text-align: center;
   max-width: 500px
+}
+
+.sign-out {
+  background: none;
+  border-radius: 0;
+  float: right;
+  margin: 0;
+  max-width: 100px;
+  padding: 0;
+
+  input {
+    background-color: $form-bg;
+    color: $main-text;
+    border: 0;
+    display: inline;
+    margin: 0;
+    padding: 1em;
+    text-align: right;
+    width: inherit;
+  }
 }
 
 input {
@@ -36,8 +64,25 @@ input {
   width: 100%;
 }
 
+#sign-up {
+  display: none;
+}
+
+#change-password {
+  display: none;
+}
+
+.link-style {
+  font-weight: bold;
+  margin-top: 10px;
+  :hover {
+    color: $hover-accent;
+  }
+}
+
 h1 {
   color: $main-text;
+  margin: 40px 0;
   text-align: center;
 }
 
@@ -46,6 +91,14 @@ h1 {
   max-width: 50%;
   margin: auto;
   text-align: center;
+}
+
+.start-game {
+  display: none;
+}
+
+#game-board {
+  display: none;
 }
 
 .row-1, .row-2, .row-3 {
