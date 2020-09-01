@@ -73,9 +73,11 @@ input {
 }
 
 .link-style {
+  cursor: pointer;
   font-weight: bold;
   margin-top: 10px;
-  :hover {
+
+  &:hover {
     color: $hover-accent;
   }
 }
@@ -94,7 +96,24 @@ h1 {
 }
 
 .start-game {
+  border: 0;
   display: none;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.start-game-button {
+  background-color: $form-bg;
+  border: solid 1px #038596;
+  border-radius: $standard-radius;
+  color: $main-text;
+  padding: 1em;
+}
+
+#whos-turn {
+  display: none;
+  text-align: center;
+  color: $main-text;
 }
 
 #game-board {

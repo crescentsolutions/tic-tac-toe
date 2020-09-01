@@ -17,17 +17,6 @@ const newGame = function (data) {
     data: data
   })
 }
-// const newGamePiece = function (data) {
-//   return $.ajax({
-//     url: config.apiUrl + '/games' + gameStore.id,
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//       // Authorization: 'Bearer ' + store.user.token
-//     },
-//     data: data
-//   })
-// }
 const trackGame = function (position, player) {
   return $.ajax({
     url: config.apiUrl + '/games/' + gameStore.id,

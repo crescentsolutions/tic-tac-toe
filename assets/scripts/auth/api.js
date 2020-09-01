@@ -24,6 +24,8 @@ const signIn = function (data) {
 const signOut = function (data) {
   console.log('This is from api.js')
   console.log(data)
+  console.log('Here is what is stored')
+  console.log(store)
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',

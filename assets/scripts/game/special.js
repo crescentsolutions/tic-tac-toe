@@ -1,13 +1,12 @@
 'use strict'
 
-const role = function () {
-  $('#role').html('<h1>X</h1>')
-}
-role()
-
 const linkSignUp = function () {
   $('#sign-up').show()
   $('#sign-in').hide()
+}
+const linkSignIn = function () {
+  $('#sign-up').hide()
+  $('#sign-in').show()
 }
 
 // let x = true
@@ -19,5 +18,6 @@ const linkSignUp = function () {
 // }
 
 module.exports = {
-  linkSignUp: linkSignUp
+  linkSignUp: linkSignUp,
+  linkSignIn: linkSignIn
 }

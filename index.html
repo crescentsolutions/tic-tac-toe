@@ -31,6 +31,7 @@
                 <input id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
                 <input id="sign-up-password_confirmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
                 <input type="submit" value="Sign up!">
+                <p id="sign-in-link" class="link-style">Nevermind, I have an account</p>
               </fieldset>
             </form>
             <form id="sign-in">
@@ -53,7 +54,7 @@
           </div>
           <div class="row start-game">
             <h3>Get Started</h3>
-            <button id="start-game">Start Game</button>
+            <button id="start-game" class="start-game-button">Start Game</button>
           </div>
         </div>
         <!-- Source: https://git.generalassemb.ly/daylinjones/jquery-ajax-token-auth -->
@@ -62,8 +63,10 @@
         <!-- Source: https://git.generalassemb.ly/daylinjones/html-css-bootstrap-layout -->
         <!-- Source: https://getbootstrap.com/docs/4.3/layout -->
         <div id="game-board" class="container">
-          <h3>Who's Turn Is it?</h3>
-          <h3 id="role"></h3>
+          <div id="whos-turn">
+            <h3>Who's Turn Is it?</h3>
+            <h3 id="role"></h3>
+          </div>
           <div class="row row-1">
             <div class="col game-square" data-cell-index='0'></div>
             <div class="col game-square" data-cell-index='1'></div>

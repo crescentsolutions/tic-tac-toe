@@ -38,12 +38,12 @@ const onSignInFailure = function (error) {
   console.log('Sign in failed')
 }
 const onSignOutSuccess = function (response) {
-  $('#message').text('You are signed out ' + response.user.email)
-  console.log('It worked!')
+  $('#message').text('You are logged out')
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#change-password').hide()
   $('#game-board').hide()
+  console.log('It worked!')
 }
 const onSignOutFailure = function (error) {
   $('#message').text('Could not sign out')

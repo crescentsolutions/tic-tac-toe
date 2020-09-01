@@ -7,7 +7,7 @@ const getGameData = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
-let turn = 'X'
+let turn = 'O'
 
 const newGameEvent = function (event) {
   event.preventDefault()
@@ -17,29 +17,33 @@ const newGameEvent = function (event) {
     .then(ui.gameCreationSuccess)
     .catch(ui.gameCreationFailure)
 }
-//
-// const newAddGamePiece = function (event) {
-//   event.preventDefault()
-//   const gamePiece = event.target
-//   const data = getGameData(gamePiece)
-//   api.newGamePiece(data)
-//     .then(ui.addGamePieceSuccess)
-//     .catch(ui.addGamePieceFailure)
-// }
-//
+
 const newTrackGamePiece = function (event) {
   event.preventDefault()
 
   // get position and player
   const selectedSquare = event.target
-  const currentPlayer = turn
 
-  // change players for next Turn
-  if (turn === 'X') {
-    turn = 'O'
+  const checkBlankSquare = $(selectedSquare).text()
+  console.log('Is this square blank? ' + checkBlankSquare)
+  // prevent user from overriding square
+  if (checkBlankSquare === '') {
+    console.log('It is blank')
+    // change players for next Turn
+    if (turn === 'O') {
+      turn = 'X'
+    } else {
+      turn = 'O'
+    }
+    // display game piece
+    $(selectedSquare).text(turn)
   } else {
-    turn = 'X'
+    $('#message').text('This square is occupied. Try again.')
+    console.log('This square is occupied. Try again.')
   }
+  $('#role').text(turn)
+
+  const currentPlayer = turn
 
   api.trackGame(selectedSquare.dataset.cellIndex, currentPlayer)
     .then(ui.gameTrackingSuccess)
@@ -48,6 +52,5 @@ const newTrackGamePiece = function (event) {
 
 module.exports = {
   newGameEvent: newGameEvent,
-  // newAddGamePiece: newAddGamePiece,
   newTrackGamePiece: newTrackGamePiece
 }

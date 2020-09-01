@@ -10,8 +10,8 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePw)
   $('#start-game').on('click', gameEvents.newGameEvent)
-  // $('#game-board').on('click', gameEvents.newAddGamePiece)
   $('.game-square').on('click', gameEvents.newTrackGamePiece)
   // Custom UI functions
   $('#sign-up-link').on('click', specialEvents.linkSignUp)
+  $('#sign-in-link').on('click', specialEvents.linkSignIn)
 })
