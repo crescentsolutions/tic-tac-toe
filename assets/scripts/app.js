@@ -14,4 +14,5 @@ $(() => {
   // Custom UI functions
   $('#sign-up-link').on('click', specialEvents.linkSignUp)
   $('#sign-in-link').on('click', specialEvents.linkSignIn)
+  $('#change-pw-link').on('click', specialEvents.linkChangePw)
 })

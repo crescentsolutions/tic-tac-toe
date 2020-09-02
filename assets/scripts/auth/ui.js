@@ -23,12 +23,11 @@ const onSignInSuccess = function (response) {
   $('#message').text('Thanks for signing in ' + response.user.email)
   console.log('It worked!')
   $('#sign-in').trigger('reset')
-  $('#change-password').show('reset')
   $('#sign-up').hide()
   $('#sign-in').hide()
-  $('#change-password').hide()
   $('.start-game').show()
   $('#game-board').show()
+  $('.sign-out').show()
 }
 const onSignInFailure = function (error) {
   $('#message').text('Sign in failed try again')
@@ -40,9 +39,10 @@ const onSignInFailure = function (error) {
 const onSignOutSuccess = function (response) {
   $('#message').text('You are logged out')
   $('#sign-up').hide()
-  $('#sign-in').hide()
+  $('#sign-in').show()
   $('#change-password').hide()
   $('#game-board').hide()
+  $('.sign-out').hide()
   console.log('It worked!')
 }
 const onSignOutFailure = function (error) {
@@ -54,6 +54,7 @@ const onSignOutFailure = function (error) {
 }
 const onChangePwSuccess = function () {
   $('#message').text('Success! Password has been changed ' + store.user.email)
+  $('#sign-in').show()
   console.log('It worked!')
   $('#change-password').trigger('reset')
 }

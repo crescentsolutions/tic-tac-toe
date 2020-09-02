@@ -13,6 +13,7 @@ const newGameEvent = function (event) {
   event.preventDefault()
   const submitNewGame = event.target
   const data = getGameData(submitNewGame)
+
   api.newGame(data)
     .then(ui.gameCreationSuccess)
     .catch(ui.gameCreationFailure)
@@ -25,23 +26,23 @@ const newTrackGamePiece = function (event) {
   const selectedSquare = event.target
 
   const checkBlankSquare = $(selectedSquare).text()
-  console.log('Is this square blank? ' + checkBlankSquare)
+  // console.log('Is this square blank? ' + checkBlankSquare)
   // prevent user from overriding square
   if (checkBlankSquare === '') {
-    console.log('It is blank')
+    // console.log('It is blank')
     // change players for next Turn
     if (turn === 'O') {
       turn = 'X'
     } else {
       turn = 'O'
     }
+    $('#role').text(turn)
     // display game piece
     $(selectedSquare).text(turn)
   } else {
     $('#message').text('This square is occupied. Try again.')
-    console.log('This square is occupied. Try again.')
+    // console.log('This square is occupied. Try again.')
   }
-  $('#role').text(turn)
 
   const currentPlayer = turn
 

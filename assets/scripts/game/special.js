@@ -8,6 +8,10 @@ const linkSignIn = function () {
   $('#sign-up').hide()
   $('#sign-in').show()
 }
+const linkChangePw = function () {
+  $('#sign-in').hide()
+  $('#change-password').show()
+}
 
 // let x = true
 // if (let turn = 0; turn <= 9; turn++) {
@@ -19,5 +23,6 @@ const linkSignIn = function () {
 
 module.exports = {
   linkSignUp: linkSignUp,
-  linkSignIn: linkSignIn
+  linkSignIn: linkSignIn,
+  linkChangePw: linkChangePw
 }
