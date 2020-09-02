@@ -30,7 +30,7 @@ const gameTrackingSuccess = function (response) {
 
   for (let i = 0; i <= gameCells.length; i++) {
     console.log('testing for loop on ui.js')
-    if (gameCells[i] === 'X') {
+    if (gameCells[i] === 'O') {
       // Scenarios:
       // top row
       if (gameCells[0] === gameCells[1] && gameCells[0] === gameCells[2]) {
