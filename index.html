@@ -37,6 +37,7 @@
             <form id="sign-in">
               <fieldset>
                 <legend>Sign In</legend>
+                <p id="message-sign-in"></p>
                 <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
                 <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
                 <input type="submit" value="Sign In">
@@ -47,7 +48,7 @@
             <form id="change-password">
               <fieldset>
                 <legend>Change Password</legend>
-                <p>You must be signed in first</p>
+                <p id="message-change-password"></p>
                 <input id="old-password" type="password" name="passwords[old]" placeholder="Old Password">
                 <input id="new-password" type="password" name="passwords[new]" placeholder="New Password">
                 <input type="submit" value="Change Password">
@@ -56,7 +57,7 @@
           </div>
           <div class="row start-game">
             <h3>Get Started</h3>
-            <button id="start-game" class="start-game-button">Start Game</button>
+            <button id="start-game" class="start-game-button">New Game</button>
           </div>
         </div>
         <!-- Source: https://git.generalassemb.ly/daylinjones/jquery-ajax-token-auth -->

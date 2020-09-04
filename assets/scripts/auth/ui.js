@@ -25,8 +25,8 @@ const onSignInSuccess = function (response) {
   $('#sign-in').trigger('reset')
   $('#sign-up').hide()
   $('#sign-in').hide()
+  $('#message-change-password').text('You have signed in. Please change your password')
   $('.start-game').show()
-  $('#game-board').show()
   $('.sign-out').show()
 }
 const onSignInFailure = function (error) {
@@ -57,6 +57,9 @@ const onChangePwSuccess = function () {
   $('#sign-in').show()
   console.log('It worked!')
   $('#change-password').trigger('reset')
+  $('#change-password').hide()
+  $('#sign-in').hide()
+  $('#message').text('Your password was successfully changed')
 }
 const onChangePwFailure = function (error) {
   $('#message').text('Password could not be changed')
