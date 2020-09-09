@@ -20,7 +20,21 @@
         </form>
       </header>
       <h1>Daylin's Tic-Tac-Toe</h1>
-      <p id="message"></p>
+      <div class="container">
+        <div class="row">
+          <div class="col message-container">
+            <p id="message"></p>
+          </div>
+          <div class="col start-game">
+            <h3 class="get-started">Get Started</h3>
+            <button id="start-game" class="start-game-button">New Game</button>
+          </div>
+          <div id="whos-turn" class="col">
+            <h3>Who's Turn Is it?</h3>
+            <h3 id="role"></h3>
+          </div>
+        </div>
+      </div>
       <section>
         <div class="container">
           <div class="row">
@@ -55,10 +69,6 @@
               </fieldset>
             </form>
           </div>
-          <div class="row start-game">
-            <h3>Get Started</h3>
-            <button id="start-game" class="start-game-button">New Game</button>
-          </div>
         </div>
         <!-- Source: https://git.generalassemb.ly/daylinjones/jquery-ajax-token-auth -->
       </section>
@@ -66,10 +76,6 @@
         <!-- Source: https://git.generalassemb.ly/daylinjones/html-css-bootstrap-layout -->
         <!-- Source: https://getbootstrap.com/docs/4.3/layout -->
         <div id="game-board" class="container">
-          <div id="whos-turn">
-            <h3>Who's Turn Is it?</h3>
-            <h3 id="role"></h3>
-          </div>
           <div class="row row-1">
             <div class="col game-square" data-cell-index='0'></div>
             <div class="col game-square" data-cell-index='1'></div>
@@ -86,7 +92,6 @@
             <div class="col game-square" data-cell-index='8'></div>
           </div>
         </div>
-
       </section>
     </body>
 </html>

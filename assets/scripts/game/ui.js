@@ -11,6 +11,7 @@ const gameCreationSuccess = function (response) {
   $('#whos-turn').show()
   $('#role').show()
   $('#game-board').show()
+  $('#message').css('font-size', '20px')
   console.log('A game has been created!')
 }
 const gameCreationFailure = function (error) {
@@ -24,54 +25,22 @@ const gameCreationFailure = function (error) {
 
 const gameTrackingSuccess = function (response) {
   gameStore.id = response.game._id
-  $('#message').text('Move has been tracked')
+  console.log('This is from ui.js')
+  console.log(response.game.over)
 
-  const gameCells = response.game.cells.filter('')
   const winningMessage = function () {
     $('#message').text('YOU ARE THE WINNER!!!')
-    $('#message').css('font-size', '42px')
-    $('#game-board').hide()
+    console.log('YOU ARE THE WINNER!!!')
+    $('#message').css('font-size', '32px')
+    // $('#game-board').hide()
   }
 
-  // const noBlankCells = gameCells.
-
-  if (gameCells[0] === gameCells[1] && gameCells[0] === gameCells[2]) {
+  if (response.game.over === true) {
     winningMessage()
-    console.log('winning scenario 1')
-
-    // middle row winner
-  } else if (gameCells[3] === gameCells[4] && gameCells[3] === gameCells[5]) {
-    winningMessage()
-    console.log('winning scenario 2')
-    // bottom row
+  } else {
+    $('#message').text('Your move was successful')
   }
-  // End of gameTrackingSuccess
 }
-
-// else if (gameCells[6] === gameCells[7] && gameCells[6] === gameCells[8]) {
-//   winningMessage()
-//   // left column
-// } else if (gameCells[0] === gameCells[3] && gameCells[0] === gameCells[6]) {
-//   winningMessage()
-//
-//   // middle column
-// } else if (gameCells[1] === gameCells[4] && gameCells[1] === gameCells[7]) {
-//   winningMessage()
-//
-//   // last column
-// } else if (gameCells[2] === gameCells[5] && gameCells[2] === gameCells[8]) {
-//   winningMessage()
-//
-//   // diagonal going right
-// } else if (gameCells[0] === gameCells[4] && gameCells[0] === gameCells[8]) {
-//   winningMessage()
-//
-//   // diagonal going left
-// } else if (gameCells[2] === gameCells[4] && gameCells[2] === gameCells[6]) {
-//   winningMessage()
-// } else {
-//   $('#message').text('Tie Game')
-// }
 
 const gameTrackingFailure = function (error) {
   $('#message').text('Could not track game play')

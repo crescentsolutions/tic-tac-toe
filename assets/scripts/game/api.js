@@ -17,7 +17,7 @@ const newGame = function (data) {
     data: data
   })
 }
-const trackGame = function (position, player) {
+const trackGame = function (position, player, status) {
   return $.ajax({
     url: config.apiUrl + '/games/' + gameStore.id,
     // gameStore.games.id,
@@ -31,7 +31,8 @@ const trackGame = function (position, player) {
           index: position,
           value: player
         },
-        over: gameStore.over
+        over: status
+        // over: gameStore.over
       }
     } // End of data
   })
