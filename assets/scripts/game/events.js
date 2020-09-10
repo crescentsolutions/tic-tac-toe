@@ -8,7 +8,7 @@ const getGameData = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
-let turn = 'O'
+let turn = 'X'
 const winner = true
 
 const newGameEvent = function (event) {
@@ -27,6 +27,10 @@ const newGameEvent = function (event) {
     .catch(ui.gameCreationFailure)
 }
 
+// const onGetStats = function () {
+//
+// }
+
 const newTrackGamePiece = function (event) {
   event.preventDefault()
   // get position and player
@@ -37,12 +41,13 @@ const newTrackGamePiece = function (event) {
   // prevent user from overriding square
   if (checkBlankSquare === '') {
     // change players for next Turn
+    $(selectedSquare).text(turn)
     if (turn === 'O') {
       turn = 'X'
     } else {
       turn = 'O'
     }
-    $(selectedSquare).text(turn)
+    $('#role').text(turn)
   } else {
     $('#message').text('This square is occupied. Try again.')
   }
@@ -54,39 +59,48 @@ const newTrackGamePiece = function (event) {
     // checking winning combinations
     // .text not working so had to switch to .innerText
     if (gameSquare[0].innerText === gameSquare[1].innerText && gameSquare[0].innerText === gameSquare[2].innerText && gameSquare[0].innerText !== '') {
+      $(selectedSquare).text('')
       return checkStatus
-    } else {
-      // $('#message').text('It is a draw!')
-      console.log('the game is still going')
-      return !checkStatus
     }
-    //   // middle row winner
-    // } else if (gameSquare[3].innerText === gameSquare[4].innerText && gameSquare[3].innerText === gameSquare[5].innerText && gameSquare[3].innerText !== '') {
-    //   return checkStatus
-    //
-    //   // bottom row
-    // } else if (gameSquare[6].innerText === gameSquare[7].innerText && gameSquare[6].innerText === gameSquare[8].innerText && gameSquare[6].innerText !== '') {
-    //   return checkStatus
-    //   // left column
-    // } else if (gameSquare[0].innerText === gameSquare[3].innerText && gameSquare[0].innerText === gameSquare[6].innerText && gameSquare[0].innerText !== '') {
-    //   return checkStatus
-    //
-    //   // middle column
-    // } else if (gameSquare[1].innerText === gameSquare[4].innerText && gameSquare[1].innerText === gameSquare[7].innerText && gameSquare[1].innerText !== '') {
-    //   return checkStatus
-    //
-    //   // last column
-    // } else if (gameSquare[2].innerText === gameSquare[5].innerText && gameSquare[2].innerText === gameSquare[8].innerText && gameSquare[2].innerText !== '') {
-    //   return checkStatus
-    //
-    //   // diagonal going right
-    // } else if (gameSquare[0].innerText === gameSquare[4].innerText && gameSquare[0].innerText === gameSquare[8].innerText && gameSquare[0].innerText !== '') {
-    //   return checkStatus
-    //
-    //   // diagonal going left
-    // } else if (gameSquare[2].innerText === gameSquare[4].innerText && gameSquare[2].innerText === gameSquare[6].innerText && gameSquare[2].innerText !== '') {
-    //   return checkStatus
+    // else {
+    //   // $('#message').text('It is a draw!')
+    //   console.log('the game is still going')
+    //   return !checkStatus
     // }
+      // middle row winner
+      else if (gameSquare[3].innerText === gameSquare[4].innerText && gameSquare[3].innerText === gameSquare[5].innerText && gameSquare[3].innerText !== '') {
+      $(selectedSquare).text('')
+      return checkStatus
+
+      // bottom row
+    } else if (gameSquare[6].innerText === gameSquare[7].innerText && gameSquare[6].innerText === gameSquare[8].innerText && gameSquare[6].innerText !== '') {
+      $(selectedSquare).text('')
+      return checkStatus
+      // left column
+    } else if (gameSquare[0].innerText === gameSquare[3].innerText && gameSquare[0].innerText === gameSquare[6].innerText && gameSquare[0].innerText !== '') {
+      $(selectedSquare).text('')
+      return checkStatus
+
+      // middle column
+    } else if (gameSquare[1].innerText === gameSquare[4].innerText && gameSquare[1].innerText === gameSquare[7].innerText && gameSquare[1].innerText !== '') {
+      $(selectedSquare).text('')
+      return checkStatus
+
+      // last column
+    } else if (gameSquare[2].innerText === gameSquare[5].innerText && gameSquare[2].innerText === gameSquare[8].innerText && gameSquare[2].innerText !== '') {
+      $(selectedSquare).text('')
+      return checkStatus
+
+      // diagonal going right
+    } else if (gameSquare[0].innerText === gameSquare[4].innerText && gameSquare[0].innerText === gameSquare[8].innerText && gameSquare[0].innerText !== '') {
+      $(selectedSquare).text('')
+      return checkStatus
+
+      // diagonal going left
+    } else if (gameSquare[2].innerText === gameSquare[4].innerText && gameSquare[2].innerText === gameSquare[6].innerText && gameSquare[2].innerText !== '') {
+      $(selectedSquare).text('')
+      return checkStatus
+    }
 
     // will return x or o
     // console.log(checkSquareValue)

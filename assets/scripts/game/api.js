@@ -38,8 +38,13 @@ const trackGame = function (position, player, status) {
   })
 }
 
+const gameHistory = function (position, player, status) {
+
+}
+
 module.exports = {
   newGame: newGame,
   // newGamePiece: newGamePiece,
-  trackGame: trackGame
+  trackGame: trackGame,
+  gameHistory: gameHistory
 }

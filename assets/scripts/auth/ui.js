@@ -21,6 +21,7 @@ const onSignUpFailure = function (error) {
 const onSignInSuccess = function (response) {
   store.user = response.user
   $('#message').text('Thanks for signing in ' + response.user.email)
+  $('#message').css('font-size', '16px')
   console.log('It worked!')
   $('#sign-in').trigger('reset')
   $('#sign-up').hide()
