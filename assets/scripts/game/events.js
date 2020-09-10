@@ -56,35 +56,35 @@ const newTrackGamePiece = function (event) {
     if (gameSquare[0].innerText === gameSquare[1].innerText && gameSquare[0].innerText === gameSquare[2].innerText && gameSquare[0].innerText !== '') {
       return checkStatus
     } else {
-      //   // $('#message').text('It is a draw!')
-      //   console.log('the game is still going')
-      //   return !checkStatus
-      // }
+      // $('#message').text('It is a draw!')
+      console.log('the game is still going')
+      return !checkStatus
+    }
     //   // middle row winner
     // } else if (gameSquare[3].innerText === gameSquare[4].innerText && gameSquare[3].innerText === gameSquare[5].innerText && gameSquare[3].innerText !== '') {
     //   return checkStatus
     //
     //   // bottom row
-    // } else if (gameSquare[6].innterText === gameSquare[7].innterText && gameSquare[6].innterText === gameSquare[8].innterText && gameSquare[6].innerText !== '') {
+    // } else if (gameSquare[6].innerText === gameSquare[7].innerText && gameSquare[6].innerText === gameSquare[8].innerText && gameSquare[6].innerText !== '') {
     //   return checkStatus
     //   // left column
-    // } else if (gameSquare[0].innterText === gameSquare[3].innterText && gameSquare[0].innterText === gameSquare[6].innterText && gameSquare[0].innerText !== '') {
+    // } else if (gameSquare[0].innerText === gameSquare[3].innerText && gameSquare[0].innerText === gameSquare[6].innerText && gameSquare[0].innerText !== '') {
     //   return checkStatus
     //
     //   // middle column
-    // } else if (gameSquare[1].innterText === gameSquare[4].innterText && gameSquare[1].innterText === gameSquare[7].innterText && gameSquare[1].innerText !== '') {
+    // } else if (gameSquare[1].innerText === gameSquare[4].innerText && gameSquare[1].innerText === gameSquare[7].innerText && gameSquare[1].innerText !== '') {
     //   return checkStatus
     //
     //   // last column
-    // } else if (gameSquare[2].innterText === gameSquare[5].innterText && gameSquare[2].innterText === gameSquare[8].innterText && gameSquare[2].innerText !== '') {
+    // } else if (gameSquare[2].innerText === gameSquare[5].innerText && gameSquare[2].innerText === gameSquare[8].innerText && gameSquare[2].innerText !== '') {
     //   return checkStatus
     //
     //   // diagonal going right
-    // } else if (gameSquare[0].innterText === gameSquare[4].innterText && gameSquare[0].innterText === gameSquare[8].innterText && gameSquare[0].innerText !== '') {
+    // } else if (gameSquare[0].innerText === gameSquare[4].innerText && gameSquare[0].innerText === gameSquare[8].innerText && gameSquare[0].innerText !== '') {
     //   return checkStatus
     //
     //   // diagonal going left
-    // } else if (gameSquare[2].innterText === gameSquare[4].innterText && gameSquare[2].innterText === gameSquare[6].innterText && gameSquare[2].innerText !== '') {
+    // } else if (gameSquare[2].innerText === gameSquare[4].innerText && gameSquare[2].innerText === gameSquare[6].innerText && gameSquare[2].innerText !== '') {
     //   return checkStatus
     // }
 
