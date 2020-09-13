@@ -38,20 +38,6 @@ const newTrackGamePiece = function (event) {
 
   const checkBlankSquare = $(selectedSquare).text()
 
-  // prevent user from overriding square
-  if (checkBlankSquare === '') {
-    // change players for next Turn
-    $(selectedSquare).text(turn)
-    if (turn === 'O') {
-      turn = 'X'
-    } else {
-      turn = 'O'
-    }
-    $('#role').text(turn)
-  } else {
-    $('#message').text('This square is occupied. Try again.')
-  }
-
   const checkGameWinner = function (checkStatus) {
     const gameSquare = $('.game-square')
     // const checkSquareValue = $('.game-square').text()
@@ -123,6 +109,20 @@ const newTrackGamePiece = function (event) {
   api.trackGame(selectedSquare.dataset.cellIndex, currentPlayer, gameStatus)
     .then(ui.gameTrackingSuccess)
     .catch(ui.gameTrackingFailure)
+
+  // prevent user from overriding square
+  if (checkBlankSquare === '') {
+    // change players for next Turn
+    $(selectedSquare).text(turn)
+    if (turn === 'O') {
+      turn = 'X'
+    } else {
+      turn = 'O'
+    }
+    $('#role').text(turn)
+  } else {
+    $('#message').text('This square is occupied. Try again.')
+  }
 }
 
 module.exports = {
