@@ -36,10 +36,12 @@ const onSignInSuccess = function (response) {
   $('#message-change-password').text('You have signed in. Please change your password')
   if ($('#change-password').is(':visible')) {
     $('.start-game').hide()
+    $('.sign-out').hide()
   } else {
     $('.start-game').show()
+    $('.sign-out').show()
   }
-  $('.sign-out').show()
+  $('.game-history').show()
 }
 const onSignInFailure = function (error) {
   $('#message').text('Sign in failed. Please try again.')
@@ -68,6 +70,7 @@ const onSignOutSuccess = function (response) {
   $('#change-password').hide()
   $('.start-game').hide()
   $('#whos-turn').hide()
+  $('.game-history').hide()
   $('#game-board').hide()
   $('input').on('focus', function () {
     $('#message-container').hide()

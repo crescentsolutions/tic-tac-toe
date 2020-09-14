@@ -127,7 +127,18 @@ const newTrackGamePiece = function (event) {
 // end of newTrackGamePiece
 }
 
+const newGameHistory = function (event) {
+  event.preventDefault()
+  const getGameHistory = event.target
+  const data = getGameData(getGameHistory)
+
+  api.gameHistory(data)
+    .then(ui.gameHistorySuccess)
+    .catch(ui.gameHistoryFailure)
+}
+
 module.exports = {
   newGameEvent: newGameEvent,
-  newTrackGamePiece: newTrackGamePiece
+  newTrackGamePiece: newTrackGamePiece,
+  newGameHistory: newGameHistory
 }

@@ -12,7 +12,6 @@ const newGame = function (data) {
     method: 'POST',
     headers: {
       Authorization: 'Bearer ' + store.user.token
-      // Authorization: 'Bearer ' + store.user.token
     },
     data: data
   })
@@ -20,7 +19,6 @@ const newGame = function (data) {
 const trackGame = function (position, player, status) {
   return $.ajax({
     url: config.apiUrl + '/games/' + gameStore.id,
-    // gameStore.games.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
@@ -32,19 +30,24 @@ const trackGame = function (position, player, status) {
           value: player
         },
         over: status
-        // over: gameStore.over
       }
     } // End of data
   })
 }
 
-const gameHistory = function (position, player, status) {
-
+const gameHistory = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: data
+  })
 }
 
 module.exports = {
   newGame: newGame,
-  // newGamePiece: newGamePiece,
   trackGame: trackGame,
   gameHistory: gameHistory
 }

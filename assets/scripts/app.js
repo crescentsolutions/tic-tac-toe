@@ -13,6 +13,7 @@ $(() => {
   // Game
   $('#start-game').on('click', gameEvents.newGameEvent)
   $('.game-square').on('click', gameEvents.newTrackGamePiece)
+  $('#view-game-history').on('click', gameEvents.newGameHistory)
   // Custom UI functions
   $('#sign-up-link').on('click', specialEvents.linkSignUp)
   $('#sign-in-link').on('click', specialEvents.linkSignIn)

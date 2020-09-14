@@ -21,16 +21,9 @@ const gameCreationFailure = function (error) {
 
 const gameTrackingSuccess = function (response) {
   gameStore.id = response.game._id
-  console.log('This is from ui.js')
-  console.log(response.game.over)
-  console.log(response.game.cells)
 
   const winningMessage = function () {
-    // $('#message').text('Player: ' + 'YOU ARE THE WINNER!!!')
-    // console.log('YOU ARE THE WINNER!!!')
-    // $('#message').css('font-size', '32px')
     $('#whos-turn').hide()
-    // $('#game-board').hide()
   }
 
   if (response.game.over === true) {
@@ -44,9 +37,19 @@ const gameTrackingFailure = function (error) {
   $('#message').text('Could not track game play')
 }
 
+const gameHistorySuccess = function (response) {
+  $('#game-history-message').text('You have played ' + response.games.length + ' games')
+}
+
+const gameHistoryFailure = function (error) {
+  $('#message').text('Could not retrieve game history')
+}
+
 module.exports = {
   gameCreationSuccess: gameCreationSuccess,
   gameCreationFailure: gameCreationFailure,
   gameTrackingSuccess: gameTrackingSuccess,
-  gameTrackingFailure: gameTrackingFailure
+  gameTrackingFailure: gameTrackingFailure,
+  gameHistorySuccess: gameHistorySuccess,
+  gameHistoryFailure: gameHistoryFailure
 }
