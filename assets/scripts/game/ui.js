@@ -12,26 +12,24 @@ const gameCreationSuccess = function (response) {
   $('#role').show()
   $('#game-board').show()
   $('#message').css('font-size', '20px')
-  console.log('A game has been created!')
 }
 const gameCreationFailure = function (error) {
   $('#message').text('Could not create new game')
   $('#message').css('background-color', '$alert')
   $('#message').css('padding', '2em 0')
-
-  console.log('error is ', error)
-  console.log('Could not create new game')
 }
 
 const gameTrackingSuccess = function (response) {
   gameStore.id = response.game._id
   console.log('This is from ui.js')
   console.log(response.game.over)
+  console.log(response.game.cells)
 
   const winningMessage = function () {
-    $('#message').text('YOU ARE THE WINNER!!!')
-    console.log('YOU ARE THE WINNER!!!')
-    $('#message').css('font-size', '32px')
+    // $('#message').text('Player: ' + 'YOU ARE THE WINNER!!!')
+    // console.log('YOU ARE THE WINNER!!!')
+    // $('#message').css('font-size', '32px')
+    $('#whos-turn').hide()
     // $('#game-board').hide()
   }
 
@@ -44,9 +42,8 @@ const gameTrackingSuccess = function (response) {
 
 const gameTrackingFailure = function (error) {
   $('#message').text('Could not track game play')
-  console.log('Could not track game play')
-  console.log('error is ', error)
 }
+
 module.exports = {
   gameCreationSuccess: gameCreationSuccess,
   gameCreationFailure: gameCreationFailure,

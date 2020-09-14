@@ -9,7 +9,7 @@ const api = require('./api')
 const ui = require('./ui')
 
 let turn = 'X'
-const winner = true
+const gameIsOver = true
 
 const newGameEvent = function (event) {
   event.preventDefault()
@@ -35,94 +35,96 @@ const newTrackGamePiece = function (event) {
   event.preventDefault()
   // get position and player
   const selectedSquare = event.target
-
-  const checkBlankSquare = $(selectedSquare).text()
-
-  const checkGameWinner = function (checkStatus) {
-    const gameSquare = $('.game-square')
-    // const checkSquareValue = $('.game-square').text()
-
-    // checking winning combinations
-    // .text not working so had to switch to .innerText
-    if (gameSquare[0].innerText === gameSquare[1].innerText && gameSquare[0].innerText === gameSquare[2].innerText && gameSquare[0].innerText !== '') {
-      $(selectedSquare).text('')
-      return checkStatus
+  const currentPlayer = function () {
+    if ($(selectedSquare).text() === 'X') {
+      return $(selectedSquare).text()
+    } else if ($(selectedSquare).text() === 'O') {
+      return $(selectedSquare).text()
+    } else {
+      $('#message').text('Please try again.')
     }
-    // else {
-    //   // $('#message').text('It is a draw!')
-    //   console.log('the game is still going')
-    //   return !checkStatus
-    // }
-      // middle row winner
-      else if (gameSquare[3].innerText === gameSquare[4].innerText && gameSquare[3].innerText === gameSquare[5].innerText && gameSquare[3].innerText !== '') {
-      $(selectedSquare).text('')
-      return checkStatus
-
-      // bottom row
-    } else if (gameSquare[6].innerText === gameSquare[7].innerText && gameSquare[6].innerText === gameSquare[8].innerText && gameSquare[6].innerText !== '') {
-      $(selectedSquare).text('')
-      return checkStatus
-      // left column
-    } else if (gameSquare[0].innerText === gameSquare[3].innerText && gameSquare[0].innerText === gameSquare[6].innerText && gameSquare[0].innerText !== '') {
-      $(selectedSquare).text('')
-      return checkStatus
-
-      // middle column
-    } else if (gameSquare[1].innerText === gameSquare[4].innerText && gameSquare[1].innerText === gameSquare[7].innerText && gameSquare[1].innerText !== '') {
-      $(selectedSquare).text('')
-      return checkStatus
-
-      // last column
-    } else if (gameSquare[2].innerText === gameSquare[5].innerText && gameSquare[2].innerText === gameSquare[8].innerText && gameSquare[2].innerText !== '') {
-      $(selectedSquare).text('')
-      return checkStatus
-
-      // diagonal going right
-    } else if (gameSquare[0].innerText === gameSquare[4].innerText && gameSquare[0].innerText === gameSquare[8].innerText && gameSquare[0].innerText !== '') {
-      $(selectedSquare).text('')
-      return checkStatus
-
-      // diagonal going left
-    } else if (gameSquare[2].innerText === gameSquare[4].innerText && gameSquare[2].innerText === gameSquare[6].innerText && gameSquare[2].innerText !== '') {
-      $(selectedSquare).text('')
-      return checkStatus
-    }
-
-    // will return x or o
-    // console.log(checkSquareValue)
-    // will return text
-    // console.log(gameSquare[0].innerText)
-    // console.log(gameSquare[1].innerText)
-    // console.log(gameSquare[2].innerText)
-    //
-    // console.log('what does this return?')
-    // returns an array of game squares with corresponding key
-    // console.log(gameSquare)
-
-    // End of checkGameWinner
   }
-  console.log('This is from events.js - checking the winner')
-  console.log(checkGameWinner(winner))
-  const gameStatus = checkGameWinner(winner)
-  const currentPlayer = turn
 
-  api.trackGame(selectedSquare.dataset.cellIndex, currentPlayer, gameStatus)
-    .then(ui.gameTrackingSuccess)
-    .catch(ui.gameTrackingFailure)
-
+  // start of test
+  const checkBlankSquare = $(selectedSquare).text()
   // prevent user from overriding square
   if (checkBlankSquare === '') {
-    // change players for next Turn
+    // display game piece
     $(selectedSquare).text(turn)
     if (turn === 'O') {
       turn = 'X'
     } else {
       turn = 'O'
+      $('#message').text('This square is occupied. Try again.')
     }
-    $('#role').text(turn)
-  } else {
-    $('#message').text('This square is occupied. Try again.')
   }
+  $('#role').text(turn)
+
+  // end of test
+
+  const gameSquare = $('.game-square')
+  const checkGameWinner = function (checkStatus) {
+    const winningMessage = function () {
+      $('#message').text('Player ' + $(selectedSquare).text() + ': YOU ARE THE WINNER!!!')
+      $('#game-board').hide()
+    }
+    const winningMessageTie = function () {
+      $('#message').text('Players X & O: There is a TIE')
+      $('#game-board').hide()
+    }
+
+    // checking winning combinations
+    // .text not working so had to switch to .innerText
+    if (gameSquare[0].innerText === gameSquare[1].innerText && gameSquare[0].innerText === gameSquare[2].innerText && gameSquare[0].innerText !== '') {
+      winningMessage()
+      return checkStatus
+
+      // middle row winner
+    } else if (gameSquare[3].innerText === gameSquare[4].innerText && gameSquare[3].innerText === gameSquare[5].innerText && gameSquare[3].innerText !== '') {
+      winningMessage()
+      return checkStatus
+
+      // bottom row
+    } else if (gameSquare[6].innerText === gameSquare[7].innerText && gameSquare[6].innerText === gameSquare[8].innerText && gameSquare[6].innerText !== '') {
+      winningMessage()
+      return checkStatus
+      // left column
+    } else if (gameSquare[0].innerText === gameSquare[3].innerText && gameSquare[0].innerText === gameSquare[6].innerText && gameSquare[0].innerText !== '') {
+      winningMessage()
+      return checkStatus
+
+      // middle column
+    } else if (gameSquare[1].innerText === gameSquare[4].innerText && gameSquare[1].innerText === gameSquare[7].innerText && gameSquare[1].innerText !== '') {
+      winningMessage()
+      return checkStatus
+
+      // last column
+    } else if (gameSquare[2].innerText === gameSquare[5].innerText && gameSquare[2].innerText === gameSquare[8].innerText && gameSquare[2].innerText !== '') {
+      winningMessage()
+      return checkStatus
+
+      // diagonal going right
+    } else if (gameSquare[0].innerText === gameSquare[4].innerText && gameSquare[0].innerText === gameSquare[8].innerText && gameSquare[0].innerText !== '') {
+      winningMessage()
+      return checkStatus
+
+      // diagonal going left
+    } else if (gameSquare[2].innerText === gameSquare[4].innerText && gameSquare[2].innerText === gameSquare[6].innerText && gameSquare[2].innerText !== '') {
+      winningMessage()
+      return checkStatus
+    } else if (gameSquare[0].innerText !== '' && gameSquare[1].innerText !== '' && gameSquare[2].innerText !== '' && gameSquare[3].innerText !== '' && gameSquare[4].innerText !== '' && gameSquare[5].innerText !== '' && gameSquare[6].innerText !== '' && gameSquare[7].innerText !== '' && gameSquare[8].innerText !== '') {
+      winningMessageTie()
+      return gameIsOver
+    }
+    // end of checkGameWinner
+  }
+
+  const gameStatus = checkGameWinner(gameIsOver)
+
+  api.trackGame(selectedSquare.dataset.cellIndex, currentPlayer, gameStatus)
+    .then(ui.gameTrackingSuccess)
+    .catch(ui.gameTrackingFailure)
+// end of newTrackGamePiece
 }
 
 module.exports = {
