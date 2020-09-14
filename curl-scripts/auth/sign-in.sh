@@ -13,3 +13,5 @@ curl "https://tic-tac-toe-api-development.herokuapp.com/sign-in" \
   }'
 
 echo
+
+# terminal: EMAIL="d@pe.me" PASSWORD="z" sh curl-scripts/auth/sign-in.sh
